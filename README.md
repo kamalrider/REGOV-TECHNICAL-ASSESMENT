@@ -45,7 +45,7 @@ Parent Class
 
              transferToAccount(senderUser,receiverUser,amount){
                 if (senderUser.balance < amount)
-                    return 'insufficient balance'
+                    console.log(insufficient balance);
                 else {
                     senderUser.withdraw(amount);
                     receiverUser.deposit(amount);
