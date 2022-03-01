@@ -1,21 +1,72 @@
-# Section1(Question-1)
+# Section-2(Question-2)
 
-    function sumOfDigitFactorial(number){
+Parent Class
 
-      for (var i = number - 1; i >= 1; i--) {
-       number = parseInt(number * i);
+    Class Account {
 
-      }
+        constructor(name, balance){
+        this.name = name;
+        this.balance = balance;}
 
-      let numberList = number.toString().split("");
-      let z = 0;
+        deposit(amount) {
+            this.balance = this.balance + amount;
+        }
 
-      for (let j=0; j<numberList.length; j++){
-       z = z + parseInt(numberList[j]);
-      }
+        withdraw(amount){
+            if (this.balance > amount)
+                this.balance = this.balance - amount;
+                
+            else
+                console.log('insufficient balance');
+                
+        }
 
-      return z;
-    } 
-    console.log(sumOfDigitFactorial(100));
+        _str_(){
+            return this.name + '\'s account. Balance : ' + this.balance;
+        }
+    }
 
+ 
+ Inheritance Class
+        
+        Class DevAccount extends Account {
+        
+            getBalance(user){
+            return user.balance;}
 
+            setBalance(user,isMoneyIn, amount){
+                if (isMoneyIn){
+                    user.deposit(amount);
+            
+                }  else {
+                    user.withdraw(amount);  
+                }
+            }
+
+             transferToAccount(senderUser,receiverUser,amount){
+                if (senderUser.balance < amount)
+                    return 'insufficient balance'
+                else {
+                    senderUser.withdraw(amount);
+                    receiverUser.deposit(amount);
+                }
+             }
+          }
+
+          let user_1 = new DevAccount('John', 2000);
+          let user_2 = new DevAccount('Lina', 500);
+
+          user_1.transferToAccount(user_1,user_2,200);
+          user_1.setBalance(user_1,false,100);
+          user_2.setBalance(user_2,true,300);
+    
+          let balanceUsr1 = user_1.getBalance(user_1);
+          let balanceUsr2 = user_2.getBalance(user_2);
+          
+  Explanation:
+  
+  At first, John account have 2000 balance and Lina account have 500 balance. 
+
+   
+  Then John have transfer 200 and withdraw 100. so, the balanceUsr1 is 1700.
+  Lina have received 200 and deposit 300. so, the balanceUsr2 is 1000.
