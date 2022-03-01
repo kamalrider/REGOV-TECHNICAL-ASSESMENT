@@ -1,4 +1,4 @@
-# Question-1
+# Section1(Question-1)
 
     function sumOfDigitFactorial(number){
 
