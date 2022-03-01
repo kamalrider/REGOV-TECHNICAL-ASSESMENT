@@ -18,3 +18,5 @@
     }
 
    console.log(sumOfDigitFactorial(100));
+
+
