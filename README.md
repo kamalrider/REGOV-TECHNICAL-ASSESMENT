@@ -15,8 +15,7 @@
       }
 
       return z;
-    }
-
-   console.log(sumOfDigitFactorial(100));
+    } 
+    console.log(sumOfDigitFactorial(100));
 
 
